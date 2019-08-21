@@ -4,7 +4,7 @@ import SearchBar from "../components/SearchBar";
 import useBiz from "../hooks/useBiz";
 import BizList from "../components/BizList.js";
 
-const SearchScreen = ({ navigation }) => {
+const SearchScreen = () => {
   const [term, setTerm] = useState("");
   const [searchApi, biz, errorMessage] = useBiz();
 
@@ -27,26 +27,10 @@ const SearchScreen = ({ navigation }) => {
       ) : // <Text style={{ margin: 15 }}>Encontramos {biz.length} resultados</Text>
       null}
       <ScrollView>
-        <BizList
-          results={filtrarBizPorPreco("$")}
-          title="Barato"
-          navigation={navigation}
-        />
-        <BizList
-          results={filtrarBizPorPreco("$$")}
-          title="Meio caro"
-          navigation={navigation}
-        />
-        <BizList
-          results={filtrarBizPorPreco("$$$")}
-          title="Gastador"
-          navigation={navigation}
-        />
-        <BizList
-          results={filtrarBizPorPreco("$$$$")}
-          title="Só milionário"
-          navigation={navigation}
-        />
+        <BizList results={filtrarBizPorPreco("$")} title="Barato" />
+        <BizList results={filtrarBizPorPreco("$$")} title="Meio caro" />
+        <BizList results={filtrarBizPorPreco("$$$")} title="Gastador" />
+        <BizList results={filtrarBizPorPreco("$$$$")} title="Só milionário" />
       </ScrollView>
     </>
   );
